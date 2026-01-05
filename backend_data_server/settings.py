@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "demo_rest_api",
+    "rest_framework",
     "homepage",
 ]
 
