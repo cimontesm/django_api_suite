@@ -39,9 +39,17 @@ class DemoRestApi(APIView):
 
 
 class DemoRestApiItem(APIView):
-    """
-    Maneja operaciones PUT, PATCH y DELETE sobre un elemento por ID
-    """
+    def get(self, request, item_id):
+        # Buscamos el elemento específico por su ID
+        for item in data_list:
+            if item['id'] == item_id:
+                return Response(item, status=status.HTTP_200_OK)
+
+        # Si el bucle termina sin encontrar nada
+        return Response(
+            {'error': 'Elemento no encontrado.'},
+            status=status.HTTP_404_NOT_FOUND
+        )
 
     def put(self, request, item_id):
         for item in data_list:
